@@ -13,10 +13,13 @@ const App = () => {
 //Use of states
   const [isCross, setIsCross] = useState(false);
   const [winMessage, setWinMessage] = useState("");
+  const [tieMessage, setTieMessage] = useState("");
+  const [turnCount, setTurnCount] = useState(0);
   
 
 
   const reloadGame = () => {
+    setTurnCount(0);
     setIsCross(false);
     setWinMessage("");
     itemArray.fill("empty",0,9);
@@ -74,13 +77,21 @@ const App = () => {
     ) {
       setWinMessage(`${itemArray[2]} won`);
     }
+    else if( turnCount >= 8){
+      setTieMessage("TIE!!");
+    }
+    else{
+      //do nothing 
+    }
   };
     
   const changeItem = itemNumber => {
     if(winMessage){
       return toast(winMessage, {type: 'success'});
     }
-    if(itemArray[itemNumber] == "empty"){
+    if(itemArray[itemNumber] === "empty"){
+      setTurnCount(turnCount+1);
+
       itemArray[itemNumber] = isCross ? "cross" : "circle";
       setIsCross(!isCross);
       checkIsWinner();
@@ -110,14 +121,28 @@ const App = () => {
               </Card>
             ))}
           </div>
-          {winMessage ? (
+          {
+          (winMessage || tieMessage) ? (
+            //if win message
+            winMessage ?
+            (
             <div className = "mb-2 mt-2" >
             <h1 className="text-primary text-uppercase text-center">{winMessage}</h1>
             <Button color="success" block onClick = { reloadGame} >Reload Game</Button>
             </div>
+            ) 
+            :
+            (
+            <div className = "mb-2 mt-2" >
+            <h1 className="text-primary text-uppercase text-center">{tieMessage}</h1>
+            <Button color="success" block onClick = { reloadGame} >Reload Game</Button>
+            </div>
+            )
             
            
-          ): ( 
+          )
+          :
+          ( 
           <h1 className = " text-center text-warning">{isCross?"It's Cross's":"It's Circle's"} Turn</h1>   
 
           )
