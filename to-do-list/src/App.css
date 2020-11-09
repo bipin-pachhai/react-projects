@@ -39,6 +39,6 @@ form {
 }
 
 .completedTodo {
-  background-color: darkgray;
+  background-color: rgb(169, 169, 169);
   text-decoration: line-through;
 }

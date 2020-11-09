@@ -4,19 +4,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import { TodoContext } from "./context/TodoContext";
-import todoReducer from "./context/reducer";
+import reducer from "./context/reducer";
 import ToDoForm from "./components/Form";
+import TodoList from "./components/TodoList";
 
 //Build a TODO app with context API using reducers and actions
+//NOTE: Read the documentation of useReducer()
 const App = () => {
-  const [todos, dispatch] = useReducer(todoReducer, []);
+  const [todos, dispatch] = useReducer(reducer, []);
   return (
-    <TodoContext.Provider value={{ todos, dispatch }}>
-      <Container fluid>
-        <h1>TO-DO List App </h1>
+    <Container fluid>
+      <h1>TO-DO List App </h1>
+      <TodoContext.Provider value={{ todos, dispatch }}>
+    
         <ToDoForm/>
-      </Container>
-    </TodoContext.Provider>
+        <TodoList/>
+        
+      </TodoContext.Provider>
+    </Container>
   );
 };
 

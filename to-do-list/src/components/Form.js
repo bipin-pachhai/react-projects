@@ -21,6 +21,7 @@ import {
        if(todo === ''){
            alert("TODO is empty. Please Add one.")
        }
+       else{
        const toDo = {
            todo,
            id : getID()
@@ -35,14 +36,17 @@ import {
        });
 
        setTodo('');
+
+    }
        
    }
-       
+
      return(
          <Form>
              <FormGroup>
                  <InputGroup>
                  <Input
+                 
                    type = 'text'
                    name = 'todo'
                    id = 'todo'
