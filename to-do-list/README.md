@@ -1,5 +1,5 @@
 # Getting Started with To-Do List App
- Here you can add and remove your to do list.
+ Here you can add and remove your to do list. In this project, we make the extensive use of react hooks like useContext(), useReducer(), and  useState(). This project targets to brush up the knowledge about the use of aforementioned react hooks.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
