@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO } from "./action.types";
+/* import { ADD_TODO, REMOVE_TODO } from "./action.types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -11,3 +11,8 @@ export default (state, action) => {
       return state;
   }
 };
+ */
+
+ // Code for local storage
+
+ 
