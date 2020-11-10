@@ -8,6 +8,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 
+
+//TO DO: Store a game’s history as a game progresses,
+// TO DO: Allow players to review a game’s history, and undo the move within a time period.
+
+
 const itemArray = new Array(9).fill("empty");
 const App = () => {
 //Use of states
@@ -27,6 +32,7 @@ const App = () => {
   };
 
   const checkIsWinner = () => {
+     //TO DO: When someone wins, highlight the three squares that caused the win.
     //  checking  winner of the game
     if (
       itemArray[0] === itemArray[1] &&
